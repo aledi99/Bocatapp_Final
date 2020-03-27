@@ -1,0 +1,25 @@
+<mat-toolbar class="main-header">
+  <div class="branding">
+    <div class="logo2"></div>
+  </div>
+  <div class="search-bar" fxFlex>
+    <button *ngIf="showAdmin()" [routerLink]="['/dashboard/establecimientos']" mat-button class="textos">Establecimientos</button>
+    <button *ngIf="showAdmin()" mat-button class="textos">Usuarios</button>
+  </div>
+  <button (click)="fullScreenToggle()" mat-icon-button>
+    <mat-icon class="blanco">fullscreen</mat-icon>
+  </button>
+  <button [matMenuTriggerFor]="user" mat-icon-button class="ml-xs">
+    <mat-icon class="blanco">person</mat-icon>
+  </button>
+  <mat-menu #user="matMenu" x-position="before">
+    <button mat-menu-item >
+      <mat-icon>account_box</mat-icon>
+      Profile
+    </button>
+    <button mat-menu-item [routerLink]="['/']">
+      <mat-icon>exit_to_app</mat-icon>
+      Sign Out
+    </button>
+  </mat-menu>
+</mat-toolbar>

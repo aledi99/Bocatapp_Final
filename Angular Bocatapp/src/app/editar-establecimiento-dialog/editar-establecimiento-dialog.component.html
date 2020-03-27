@@ -1,0 +1,48 @@
+<div mat-dialog-content>
+  <p>Editar Establecimiento:</p>
+
+  <mat-form-field>
+    <input matInput type="text" placeholder="Nombre" [(ngModel)]="establecimiento.nombre">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Descripcion" [(ngModel)]="establecimiento.descripcion">
+  </mat-form-field>
+  <mat-label>
+    <mat-select [(ngModel)]="nombreCategoriaSeleccionado">
+    <mat-option *ngFor="let nombreCategoria of listaNombreCategoria" [value]="nombreCategoria.nombre">
+      {{nombreCategoria.nombre}}
+    </mat-option>
+    </mat-select>
+    </mat-label>
+    <p>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Presupuesto" [(ngModel)]="establecimiento.presupuesto">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="time" [(ngModel)]="establecimiento.horaApertura">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="time" [(ngModel)]="establecimiento.horaCierre">
+  </mat-form-field>
+
+<p>Localizacion (obtener coordenadas e introducirlas):</p>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="Latitud" [(ngModel)]="establecimiento.localizacion.latitud">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput type="number" placeholder="Longitud" [(ngModel)]="establecimiento.localizacion.longitud">
+  </mat-form-field>
+
+  <p>
+
+  <label>
+  <input type="checkbox" class="example-margin" [(ngModel)]="establecimiento.abierto" data-md-icheck >Abierto
+  </label>
+
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button (click)="editEstablecimiento()" cdkFocusInitial>Añadir</button>
+</div>

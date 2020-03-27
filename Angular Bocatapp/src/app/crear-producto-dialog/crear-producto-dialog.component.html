@@ -1,0 +1,29 @@
+<div mat-dialog-content>
+  <p>Producto:</p>
+
+  <form [formGroup]="form" enctype="multipart/form-data">
+
+    <input formControlName="imagen" type="file"  (change)="uploadFile($event)" accept="image/*" />
+  <mat-form-field>
+    <input matInput type="text" placeholder="Nombre" formControlName="nombre">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Descripcion" formControlName="descripcion">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="number" placeholder="Precio" formControlName="precio">
+  </mat-form-field>
+
+  <label>
+  <input type="checkbox" class="example-margin" formControlName="gluten" data-md-icheck (change)="toggleVisibility($event)">Gluten
+  </label>
+
+  <label>
+  <input type="checkbox" class="example-margin" data-md-icheck formControlName="lactosa" (change)="toggleVisibility2($event)">Lactosa
+  </label>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button (click)="submitForm()" cdkFocusInitial>Añadir</button>
+</div>

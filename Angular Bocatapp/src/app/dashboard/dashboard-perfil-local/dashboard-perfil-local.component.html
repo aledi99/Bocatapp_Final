@@ -1,0 +1,127 @@
+<div *ngIf= "establecimiento != null">
+<div fxLayout="column" fxLayoutGap="5px" class="container">
+    <mat-card fxFlex="1 1 calc(33.3%-5px)" fxFlex.lt-lg="1 1 calc(50%-5px)" fxFlex.lt-sm="1 1 calc(100%-5px)">
+        <div fxLayout="row" >
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <img *ngIf="establecimiento.imagen != null" [src]='getImage(establecimiento.imagen.nombreFichero)' class="imgPeli" fxHide.sm="true"  fxHide.xs="true">
+         
+            </div>
+            <div fxLayout="column" class="manage" fxLayoutAlign="start start">
+                <div fxLayout="row" >
+                    <div fxLayout="column" class="margen" fx fxLayoutAlign="start start">
+                        <mat-card-title fxLayout="row"><span class="letras">{{establecimiento.nombre}}</span></mat-card-title>
+                        <p>
+                        <p>
+                        <mat-card-subtitle fxLayout="row">
+                        <span class="letrasTipo">A nombre de : {{establecimiento.gerente.nombre}}</span>
+                        </mat-card-subtitle>
+                        <P>
+                        <mat-card-subtitle fxLayout="row">
+                        <span class="letrasTipo">Presupuesto: {{establecimiento.presupuesto}}€</span>
+                        </mat-card-subtitle>
+                        
+                    </div>
+                </div>
+
+                <div fxLayout="row" class="margen2" fxLayoutAlign="start start" fxLayoutGap="gappx" fxHide.sm="true">
+                        <mat-card-content>
+                            <p><span class="letrasDescr">{{establecimiento.descripcion}}</span></p>
+                            <p>
+                            <span class="letrasDescr">Horario: {{establecimiento.horaApertura}} - {{establecimiento.horaCierre}} (<span class="letrasDescr" *ngIf="establecimiento.abierto">Abierto</span><span class="letrasDescr" *ngIf="!establecimiento.abierto">Cerrado</span>)</span>
+                        </mat-card-content>
+
+                </div>
+                <div fxLayout="row" class="margen" fxLayoutAlign="start start">
+                        <button mat-raised-button color="primary" (click)="openDialog(establecimiento.id)" class="botton">Editar..</button>
+                </div>
+         
+            </div>
+            <div fxLayout="column" class="manage2" fxLayoutAlign="start end">
+                <div fxLayout="row" >
+                    <div fxLayout="column" class="margen" fx fxLayoutAlign="start start">
+                        <mat-card-title fxLayout="row"><span class="letrasDescr">{{establecimiento.categoria.nombre}}</span></mat-card-title>
+                        
+                    </div>
+                </div>
+                </div>
+            
+        </div>
+        
+    </mat-card>
+   
+</div>
+
+<button mat-fab color="warn" class="grande mat-fab-bottom-right" style="z-index: 9;">
+  <mat-icon class="mat-24">add</mat-icon>
+</button>
+</div>
+
+<div *ngIf="establecimiento == null">
+<div class="session color">
+  <div class="session-content">
+    <div class="session-wrapper">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="form"  enctype="multipart/form-data">
+            <div class="text-xs-center pb-1">
+              <img src="assets/images/bocatapp.png" alt="" />
+              <p class="mat-text-muted">Crear un Establecimiento.</p>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around">
+              <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="Nombre" type="text" formControlName="nombre" >
+                </mat-form-field>
+                </div>
+                <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="Descripcion" type="text" formControlName="descripcion" >
+                </mat-form-field>
+                </div>
+                <div>
+                 <mat-label>
+                    <mat-select formControlName="nombreCategoria">
+                        <mat-option *ngFor="let nombreCategoria of listaNombreCategoria" [value]="nombreCategoria.nombre">
+                        {{nombreCategoria.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-label>
+                </div>
+                <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="Presupuesto" type="number" formControlName="presupuesto" >
+                </mat-form-field>
+                </div>
+                <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="HoraApertura" type="text" formControlName="horaApertura" >
+                </mat-form-field>
+                </div>
+              <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="HoraCierre" type="text" formControlName="horaCierre">
+                </mat-form-field>
+                </div> 
+                <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="Latitud" type="text" formControlName="latitud" >
+                </mat-form-field>
+                </div>
+                <div class="pb-1">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder="Longitud" type="text" formControlName="longitud" >
+                </mat-form-field>
+                </div>          
+              <input formControlName="imagen" type="file"  (change)="uploadFile($event)" accept="image/*" />
+              <div class="pb-1">
+                <mat-checkbox>Establecimiento activo</mat-checkbox>
+              </div>
+              <button mat-raised-button color="primary" class="btn-block" type="submit" [disabled]="!form.valid" (click)="submitForm()">Crear establecimiento.</button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+</div>

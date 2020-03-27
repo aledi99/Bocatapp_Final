@@ -1,0 +1,32 @@
+<div fxLayout="column" fxLayoutGap="5px" class="container">
+    <mat-card fxFlex="1 1 calc(33.3%-5px)" *ngFor="let establecimiento of listaEstablecimientos" fxFlex.lt-lg="1 1 calc(50%-5px)" fxFlex.lt-sm="1 1 calc(100%-5px)">
+        <div fxLayout="row" >
+            <div fxLayout="column" fxLayoutAlign="start start">
+                <img *ngIf="establecimiento.imagen != null" [src]='getImage(establecimiento.imagen.nombreFichero)' class="imgPeli" fxHide.sm="true"  fxHide.xs="true">
+         
+            </div>
+            <div fxLayout="column" class="manage" fxLayoutAlign="start start">
+                <div fxLayout="row" >
+                    <div fxLayout="column" class="margen" fx fxLayoutAlign="start start">
+                        <mat-card-title fxLayout="row"><span class="letras">{{establecimiento.nombre}}</span></mat-card-title>
+                        <p>
+                        <p>
+                        <mat-card-subtitle fxLayout="row"><span class="letrasTipo"> Establecimiento de {{establecimiento.gerente.nombre}}</span></mat-card-subtitle>
+                    </div>
+                </div>
+                <div fxLayout="row" class="margen2" fxLayoutAlign="start start" fxLayoutGap="gappx" fxHide.sm="true">
+                        <mat-card-content>
+                            <p><span class="letrasDescr">{{establecimiento.descripcion}}</span></p>
+                        </mat-card-content>
+                </div>
+                <div fxLayout="row" class="margen" fxLayoutAlign="start start">
+                        <button mat-raised-button color="primary" (click)="openDialog(establecimiento.id)" class="botton">Editar..</button>
+                </div>
+         
+            </div>
+            
+        </div>
+        
+    </mat-card>
+   
+</div>
