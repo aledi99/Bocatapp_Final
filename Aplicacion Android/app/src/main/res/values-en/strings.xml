@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="register">Register</string>
+    <string name="fullname">Full Name</string>
+    <string name="email">E-mail</string>
+    <string name="re_email">Repeat E-mail</string>
+    <string name="password">Password</string>
+    <string name="re_password">Repeat Password</string>
+    <string name="age">Age</string>
+    <string name="order">ORDER</string>
+    <string name="total">TOTAL</string>
+    <string name="payment">PAYMENT</string>
+    <string name="upload">Avatar</string>
+    <string name="name">Name</string>
+    <string name="surname">Surnames</string>
+    <string name="username">Nick</string>
+    <string name="goRegister">¡Sign up now!</string>
+    <string name="add">Add</string>
+</resources>

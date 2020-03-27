@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Bocatapp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="register">Registro</string>
+    <string name="fullname">Nombre Completo</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="re_email">Repetir Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="re_password">Repetir Contraseña</string>
+    <string name="age">Edad</string>
+    <string name="order">PEDIDO</string>
+    <string name="total">TOTAL</string>
+    <string name="payment">PAGO</string>
+    <string name="upload">Avatar</string>
+    <string name="name">Nombre</string>
+    <string name="surname">Apellidos</string>
+    <string name="username">Nombre de Usuario</string>
+    <string name="goRegister">¡Regístrate!</string>
+    <string name="add">Añadir</string>
+</resources>
